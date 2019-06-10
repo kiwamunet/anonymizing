@@ -1,0 +1,14 @@
+,id,name,mail,address,gender,age,job
+0,1,suzuki,a@gmail.com,tokyo,0,25,doctor
+1,2,tanaka,b@gmail.com,tokyo,1,26,lawyer
+2,3,takahashi,c@gmail.com,tokyo,1,27,judge
+3,4,yoshida,d@gmail.com,tokyo,0,28,teacher
+4,5,abe,e@gmail.com,tokyo,0,29,baby-sitter
+5,6,okada,f@gmail.com,tokyo,1,30,mayor
+6,7,kitano,g@gmail.com,tokyo,1,31,fire fighter
+7,8,nishino,h@gmail.com,tokyo,1,32,police
+8,9,higashi,i@gmail.com,tokyo,1,33,banker
+9,10,tokoro,j@gmail.com,tokyo,0,34,journalist
+10,11,ooyama,k@gmail.com,tokyo,0,35,director
+11,12,sato,l@gmail.com,tokyo,0,36,camera operator
+12,13,goto,m@gmail.com,tokyo,1,37,skylist

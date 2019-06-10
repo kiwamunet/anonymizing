@@ -1,0 +1,131 @@
+{% extends 'commons/base.html' %}
+{% load staticfiles %}
+{% load bootstrap3 %}
+
+{% block content %}
+    {% if messages %}
+      {% for message in messages %}
+          <div class="{{ message|bootstrap_message_classes }} alert-dismissable">
+              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&#215;</button>
+              {{ message }}
+          </div>
+      {% endfor %}
+    {% endif %}
+    <div class="row">
+        <div class="col-xs-12">
+            {% if uploaded != True %}
+            <form action="" method="post" enctype="multipart/form-data">
+                <div class="input-group">
+                    {% csrf_token %}
+                    {{ form }}
+                    <label class="input-group-btn">
+                        <span class="btn btn-warning">
+                            読み込み<input type="submit" name='readFile' style="display:none" class="uploadFile">
+                        </span>
+                    </label>
+                </div>
+            </form>
+        {% endif %}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12">
+            {% if uploaded == True %}
+            <form name="content_form" action="" method="post">
+                {% csrf_token %}
+                <div class="pull-left" style="padding:2px">
+                    <label class="input-group-btn">
+                        <span class="btn btn-info">
+                            SHOW 識別子候補<input type="submit" name='show_identifier' style="display:none">
+                        </span>
+                    </label>
+                </div>
+                <div class="pull-left" style="padding:2px">
+                    <label class="input-group-btn visibilityBtn" style="visibility:hidden">
+                        <span class="btn btn-warning">
+                            秘匿する<input type="submit" name='hiding' style="display:none">
+                        </span>
+                    </label>
+                </div>
+                <div class="pull-left" style="padding:2px">
+                    <label class="input-group-btn">
+                        <span class="btn btn-success">
+                            エクスポートする<input type="submit" name='export_csv' style="display:none">
+                        </span>
+                    </label>
+                </div>
+                <div class="pull-left" style="padding:2px">
+                    <label class="input-group-btn visibilityBtn" style="visibility:hidden">
+                        <span class="btn btn-danger">
+                            k分の1<input type="submit" name='k-anonim' style="display:none">
+                        </span>
+                    </label>
+                </div>
+                <div class="pull-left" style="padding:2px">
+                    <label class="input-group-btn visibilityBtn" style="visibility:hidden">
+                        <span class="btn btn-primary">
+                            一般化<input type="submit" name='generalize' style="display:none">
+                        </span>
+                    </label>
+                </div>
+                <br>
+            {% endif %}
+            <table border="1" class="dataframe table table-bordered table-hover">
+                <colgroup>
+                    {% for c in df.columns %}
+                        <col id="col-{{ forloop.counter0 }}">
+                    {% endfor %}
+                </colgroup>
+                <thead>
+                <tr>
+                {% for column in df.columns %}
+                    <th><input name='checkedCol' type="checkbox" value="{{ column }}" onclick="ChangeColColor(this,'col-{{ forloop.counter0 }}')"> {{ column }}</th>
+                {% endfor %}
+                </tr>
+                </thead>
+                <tbody>
+                {% for row in df.values %}
+                    <tr>
+                        {% for v in row %}
+                            <td>{{ v }}</td>
+                        {% endfor %}
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+            </form>
+        </div>
+    </div>
+{% endblock %}
+
+{% block script %}
+<script src='{% static "js/jquery.min.js" %}'></script>
+<script src='{% static "js/bootstrap.min.js" %}'></script>
+<script>
+    function ChangeColColor(chkCol,col) {
+        var varCol = document.getElementById(col);
+        var varColor = "White";
+        if (chkCol.checked == true) {
+            varColor = "Gray";
+        }
+        varCol.style.backgroundColor = varColor;
+
+        var flag = false;
+        for (var i = 0; i < document.content_form.checkedCol.length; i++) {
+            if (document.content_form.checkedCol[i].checked) {
+                flag = true;
+                break;
+            }
+        }
+        var elements = document.getElementsByClassName("visibilityBtn");
+        for (var i = 0; i < elements.length; i++) {
+            if (!flag) {
+                elements[i].style.visibility ="hidden";
+            } else {
+                elements[i].style.visibility ="visible";
+            }
+        }
+    }   
+</script>
+{% endblock script %}

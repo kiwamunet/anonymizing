@@ -1,0 +1,11 @@
+version: '3'
+ 
+services:
+  api:
+    build: anonim/
+    command: sh -c "cd /code/; pip install -r ./requirements.txt; python3 ./manage.py runserver 0.0.0.0:8000"
+    volumes:
+      - ./anonim:/code
+    tty: true
+    ports:
+      - "8000:8000"

@@ -1,0 +1,14 @@
+﻿id,name,mail,address,gender,age,job
+1,suzuki,a@gmail.com,東京都西東京市,0,25,doctor
+2,tanaka,b@gmail.com,東京都世田谷区三宿,1,26,lawyer
+3,takahashi,c@gmail.com,京都府相楽郡南山城村北大河原2-11-3,1,27,judge
+4,yoshida,d@gmail.com,秋田県秋田市新屋田尻沢西町5-11-6,0,28,teacher
+5,abe,e@gmail.com,新潟県新潟市東中通8-3-4,0,29,baby-sitter
+6,okada,f@gmail.com,東京都立川市高松町9-7-9 ニューコーポ高松町,1,30,mayor
+7,kitano,g@gmail.com,京都府相楽郡笠置町切山3-9-8 切山荘 6F,1,31,fire fighter
+8,nishino,h@gmail.com,北海道中川郡池田町清見ヶ丘4-4-3,1,32,police
+9,higashi,i@gmail.com,佐賀県鳥栖市田代本町2-9-8,1,33,banker
+10,tokoro,j@gmail.com,石川県小松市飴屋町7248,0,34,journalist
+11,ooyama,k@gmail.com,北海道上川郡,0,35,director
+12,sato,l@gmail.com,東京都渋谷区恵比寿西5268,0,36,camera operator
+13,goto,m@gmail.com,東京都千代田区神田花岡町4-14-2,1,37,skylist
