@@ -5,7 +5,7 @@ django-bootstrap3==11.0.0
 entrypoints==0.3
 flake8==3.7.7
 mccabe==0.6.1
-numpy==1.16.4
+numpy==1.22.0
 pandas==0.24.2
 pipenv==2018.11.26
 pycodestyle==2.5.0
